@@ -2,15 +2,14 @@
    
 ## funkcionális követelmények  
  
-* *Családtagok :
+Családtagok :
 
 -  Saját feladat felvétele saját listára (csak az adott családtag végezheti el)
 -  Saját listán szereplő feladatok lekérdezése 
 -  Saját feladat törlése a saját listáról (ami már elvégezve lett)
 -  Megjegyzés fűzése saját feladathoz
 
-
-* *Családfők :
+Családfők :
 - Összes lista lekérdézése (saját és közös)
 - Közös feladat felvétele közös listára (bárki elvégezheti)
 - Saját feladat felvétele nem saját listára
@@ -19,18 +18,15 @@
 - Megjegyzés fűzése saját feladathoz
 - Megjegyzés fűzése közös feladathoz
 
-   
-
-
+ 
 ## Szerepkörök   
 
-Vendég: Családi főoldal látogatása 
+Vendég: főoldal látogatása 
 Családtag: a vendég szerepkörén túl feladatot tud felvenni, törölni(teljesíteni), megjegyzést tud fűzni a feladatokhoz illetve képes megtekinteni őket.  
 Családfő: a családtag szerepkörén túl az összes feladatot meg tudja tekinteni. Képes saját és közös feladatok kiírására, illetve ezekhez megjegyzést fűzni.    
   
 
- 
- ## Végpontok bemutatása 
+ ## ARC
  
 * GET /tasks : megadja a Task-okat
 * GET /tasks/id/descriptions : megadja egy Task-hoz lévő Description-oket
