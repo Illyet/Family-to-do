@@ -28,28 +28,27 @@ Családfő: a családtag szerepkörén túl az összes feladatot meg tudja tekin
 
  ## ARC
  
-* GET /tasks : megadja a Task-okat
-* GET /tasks/id/descriptions : megadja egy Task-hoz lévő Message-ket
-* GET /familys : megadja a Family-ket
-* GET /familys/id/users : megadja egy Family-het tartozó User-eket
-* GET /users : megadja a User-eket
-* GET /users/id/tasks : megadja egy User-hez tartozó Task-okat
-* GET /messagess : megadja a Message-ket
-* POST /tasks : Új Task létrehozása
-* POST /tasks/id/messagess : egy Task-hoz új Description létrehozása
-* POST /familys : Új Family létrehozása
-* POST /familys/id/users : egy Family-hez új User hozzáadása
-* POST /users : Új User létrehozása
-* POST /users/id/tasks : egy User-hez új Task hozzáadása
-* POST /messagess : Új Message létrehozása 
-* POST /users/login : Felhasználó bejelentkezése 
-* POST /users/register : Felhasználó regisztrálása
-* PUT /tasks/id : egy Task szerkesztése
-* PUT /familys/id : egy Family szerkesztése
-* PUT /users/id : egy User szerkesztése
-* PUT /users/id/tasks : egy User-hez tartozó Task szerkesztése
-* PUT /messages/id : egy Message szerkesztése
-* DELETE /tasks/id : Egy Task törlése
-* DELETE /familys/id : egy Family törlése
-* DELETE /users/id : egy User törlése
-* DELETE /messagess/id : egy Message törlése 
+* GET /tasks : megadja a Task-okat ADMIN USER
+* GET /tasks/id/descriptions : megadja egy Task-hoz lévő Message-ket ADMIN USER
+* GET /familys : megadja a Family-ket ADMIN
+* GET /familys/id/users : megadja egy Family-hez tartozó User-eket ADMIN
+* GET /users : megadja a User-eket ADMIN
+* GET /users/id/tasks : megadja egy User-hez tartozó Task-okat ADMIN USER
+* GET /messagess : megadja a Message-ket ADMIN
+* POST /tasks : Új Task létrehozása ADMIN
+* POST /tasks/id/messagess : egy Task-hoz új Description létrehozása ADMIN
+* POST /familys : Új Family létrehozása ADMIN
+* POST /familys/id/users : egy Family-hez új User hozzáadása ADMIN
+* POST /users : Új User létrehozása ADMIN USER
+* POST /users/id/tasks : egy User-hez új Task hozzáadása ADMIN
+* POST /messagess : Új Message létrehozása ADMIN USER
+* POST /api/auth : User vagy Admin tokengenerálása
+* PUT /tasks/id : egy Task szerkesztése ADMIN USER
+* PUT /familys/id : egy Family szerkesztése ADMIN
+* PUT /users/id : egy User szerkesztése ADMIN USER
+* PUT /users/id/tasks : egy User-hez tartozó Task szerkesztése ADMIN USER
+* PUT /messages/id : egy Message szerkesztése ADMIN USER
+* DELETE /tasks/id : Egy Task törlése ADMIN
+* DELETE /familys/id : egy Family törlése ADMIN
+* DELETE /users/id : egy User törlése ADMIN
+* DELETE /messagess/id : egy Message törlése ADMIN USER
