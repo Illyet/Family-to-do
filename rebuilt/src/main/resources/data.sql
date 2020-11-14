@@ -1,20 +1,23 @@
 INSERT INTO family (familyname) VALUES ('Amberboy');
-INSERT INTO user (name, username, password, role, family_id) VALUES ('Tibor', 'tibor', '$2a$04$YDiv9c./ytEGZQopFfExoOgGlJL6/o0er0K.hiGb5TGKHUL8Ebn..', 'ADMIN', 1);
-INSERT INTO user (name, username, password, role, family_id) VALUES ('László', 'laszlo', '$2a$04$YDiv9c./ytEGZQopFfExoOgGlJL6/o0er0K.hiGb5TGKHUL8Ebn..', 'USER', 1);
-INSERT INTO user (name, username, password, role, family_id) VALUES ('Péter', 'peter', '$2a$04$YDiv9c./ytEGZQopFfExoOgGlJL6/o0er0K.hiGb5TGKHUL8Ebn..', 'USER', 1);
+insert into Family (familyname) values('Dezso');
+insert into Family (familyname) values('Branczik');
+insert into Family (familyname) values('Kertai');
 
-INSERT INTO task (title, description, place, status, created_at, modified_at, creator_id) VALUES ('Rossz projektor', 'Nem kapcsol be a projektor', 'PC-209', 'NEW', CURRENT_TIMESTAMP(),  CURRENT_TIMESTAMP(), 1);
-INSERT INTO task (title, description, place, status, created_at, modified_at, creator_id) VALUES ('Rossz projektor', 'Nem kapcsol be a projektor', 'PC-209', 'DOING', CURRENT_TIMESTAMP(),  CURRENT_TIMESTAMP(), 2);
-INSERT INTO task (title, description, place, status, created_at, modified_at, creator_id) VALUES ('ZH mód', 'Bekapcsolva maradt a zh mód', 'PC-209', 'DONE', CURRENT_TIMESTAMP(),  CURRENT_TIMESTAMP(), 1);
+INSERT INTO user (username, password,  role, family_id) VALUES ('benedek', 'benedek', 'ROLE_ADMIN', 1);
+INSERT INTO user (username, password,  role, family_id) VALUES ('levente', 'levente', 'ROLE_USER', 1);
+INSERT INTO user (username, password,  role, family_id) VALUES ( 'balint', 'balint', 'ROLE_ADMIN', 2);
+INSERT INTO user (username, password,  role, family_id) VALUES ( 'irimias', 'irimias', 'ROLE_USER', 2);
 
+INSERT INTO task (title, description, place, status, created_at, modified_at) VALUES ('Mosogatas', 'Megint nem pakoltad ki a mosogatogepet', 'konyha', 'NEW', CURRENT_TIMESTAMP(),  CURRENT_TIMESTAMP());
+INSERT INTO task (title, description, place, status, created_at, modified_at) VALUES ('Takaritas', 'Nappali porszivozas', 'nappali', 'DOING', CURRENT_TIMESTAMP(),  CURRENT_TIMESTAMP());
+INSERT INTO task (title, description, place, status, created_at, modified_at) VALUES ('Rendrakas', 'Szobadban rakj rendet minden ruhad a foldon van', 'benedekszoba', 'DONE', CURRENT_TIMESTAMP(),  CURRENT_TIMESTAMP());
 
+INSERT INTO message (body, created_at, task_id) VALUES ('De a levi már megigerte hogy megcsinalja..', CURRENT_TIMESTAMP(), 1);
+INSERT INTO message (body, created_at, task_id) VALUES ('De a levi már megigerte hogy megcsinalja..', CURRENT_TIMESTAMP(), 2);
+INSERT INTO message (body, created_at, task_id) VALUES ('De a levi már megigerte hogy megcsinalja..', CURRENT_TIMESTAMP(), 3);
+INSERT INTO message (body, created_at, task_id) VALUES ('Levi tegnap elköltözött', CURRENT_TIMESTAMP(), 1);
 
-INSERT INTO message (body, created_at, task_id, creator_id) VALUES ('De nálam jó', CURRENT_TIMESTAMP(), 1, 1);
-
--- INSERT INTO label (text) VALUES ('projektor');
--- INSERT INTO label (text) VALUES ('zh mód');
--- INSERT INTO label (text) VALUES ('elromlott hallgatói gép');
-
--- INSERT INTO issue_labels (issues_id, labels_id) VALUES (1, 1);
--- INSERT INTO issue_labels (issues_id, labels_id) VALUES (1, 3);
--- INSERT INTO issue_labels (issues_id, labels_id) VALUES (3, 2);
+insert into task_users (tasks_id, users_id) values (1, 1);
+insert into task_users (tasks_id, users_id) values (2, 3);
+insert into task_users (tasks_id, users_id) values (3, 3);
+insert into task_users (tasks_id, users_id) values (2, 4);

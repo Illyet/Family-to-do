@@ -32,6 +32,7 @@ public class Message {
     private LocalDateTime createdAt;
 
     @ManyToOne
+    @JoinColumn
     @JsonIgnore
     private Task task;
 

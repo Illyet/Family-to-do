@@ -22,44 +22,42 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Integer id;
 
-    @Column
-    @NotNull
-    private String name;
 
 
-    @Column
-    @NotNull
-    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+
+    @Column(nullable = false)
     private String username;
 
 
-    @Column
-    @NotNull
-    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @Column(nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     public enum UserRole{
-        GUEST, USER, ADMIN
+        ROLE_GUEST, ROLE_USER, ROLE_ADMIN
     }
 
-    @Column
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private UserRole role;
 
-    @OneToMany(mappedBy = "creator")
+    @ManyToMany(mappedBy = "users")
     @JsonIgnore
-    private List<Task> createdTasks;
+    private List<Task> tasks;
+
 
     @OneToMany(mappedBy = "creator")
     @JsonIgnore
     private List<Message> messages;
 
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn
-    private Family family;
+   @ManyToOne
+   @JsonIgnore
+   @JoinColumn
+   private Family family;
 
 
 }

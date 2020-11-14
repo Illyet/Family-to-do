@@ -55,7 +55,8 @@ public class Task {
     @OneToMany(mappedBy = "task")
     private List<Message> messages;
     
-    @ManyToOne
-    private User creator;
+    @ManyToMany
+    @JoinTable
+    private List<User> users;
 
 }

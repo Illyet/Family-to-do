@@ -5,6 +5,7 @@ import hu.elte.familytodo.model.Message;
 import hu.elte.familytodo.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -12,23 +13,25 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/messages")
 public class MessageController {
-
+    @Autowired
     private MessageRepository messageRepository;
 
-    public MessageController(@Autowired MessageRepository messageRepository) {this.messageRepository = messageRepository;}
-
+  //  public MessageController(@Autowired MessageRepository messageRepository) {this.messageRepository = messageRepository;}
+  @Secured({ "ROLE_USER", "ROLE_ADMIN" })
     @GetMapping("")
     public ResponseEntity<Iterable<Message>> getMessages(@RequestParam(required = false) String title) {
         Iterable<Message> messages;
         messages = messageRepository.findAll();
         return ResponseEntity.ok(messages);
     }
-
+    @Secured({ "ROLE_USER", "ROLE_ADMIN" })
     @PostMapping("")
-    public ResponseEntity<Message> post(@RequestBody Message description) {
-        Message savedDescription = messageRepository.save(description);
-        return ResponseEntity.ok(savedDescription);
+    public ResponseEntity<Message> post(@RequestBody Message message) {
+        Message savedMessage = messageRepository.save(message);
+        return ResponseEntity.ok(savedMessage);
     }
+
+    @Secured({ "ROLE_USER", "ROLE_ADMIN" })
     @PutMapping("/{id}")
     public ResponseEntity<Message> put(@RequestBody Message message, @PathVariable Integer id) {
         Optional<Message> oMessage = messageRepository.findById(id);
@@ -40,6 +43,7 @@ public class MessageController {
         }
     }
 
+    @Secured({ "ROLE_USER", "ROLE_ADMIN" })
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable Integer id) {
         Optional<Message> oDescription = messageRepository.findById(id);
